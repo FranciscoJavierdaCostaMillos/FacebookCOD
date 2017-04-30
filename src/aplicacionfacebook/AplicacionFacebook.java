@@ -37,9 +37,9 @@ public class AplicacionFacebook {
     public static void connectr() {
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
-                .setOAuthAppId("1168625029929736")
-                .setOAuthAppSecret("d5e39146d597063662719a06f03419f2")
-                .setOAuthAccessToken("EAAQm27fI2wgBALEMsmRjP6zBbpkrNQKL5HPfZAhakK6n5Xn0EbNYsTECaXZBh94pVJrD59sM0h9leuTiRX8ieIZA4zYuJThFK23YJ9sZBDMvQYkwSBYeRgcqFyRx4kzCneDcg8OV4HfLZBlUa0JqZBiuyRjmsRe5YpcIz2eaSQzwKHfNREEziU9nCZADivLRJq2gGs45oOKzAZDZD")
+                .setOAuthAppId("****")
+                .setOAuthAppSecret("*****")
+                .setOAuthAccessToken("******")
                 .setOAuthPermissions("email,publish_stream,...");
         FacebookFactory ff = new FacebookFactory(cb.build());
         facebook = ff.getInstance();
