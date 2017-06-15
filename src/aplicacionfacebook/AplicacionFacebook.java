@@ -25,31 +25,23 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author ggarciamartinez
+ * @author Javi
  */
 public class AplicacionFacebook {
 
     static Facebook facebook;
 
-    /**
-     * Clase que conecta la aplicacion medianre los tokens
-     */
     public static void connectr() {
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
-                .setOAuthAppId("****")
-                .setOAuthAppSecret("*****")
-                .setOAuthAccessToken("******")
+                .setOAuthAppId("*****************+*")
+                .setOAuthAppSecret("*******************")
+                .setOAuthAccessToken("**************")
                 .setOAuthPermissions("email,publish_stream,...");
         FacebookFactory ff = new FacebookFactory(cb.build());
         facebook = ff.getInstance();
     }
 
-    /**
-     * @throws FacebookException
-     * @throws MalformedURLException
-     * Clase que publica una imagen mediante URLs
-     */
     public static void postearFoto() throws FacebookException, MalformedURLException {
 
         PostUpdate post = new PostUpdate(new URL("https://static.pexels.com/photos/7613/pexels-photo.jpg"))
@@ -60,21 +52,12 @@ public class AplicacionFacebook {
         JOptionPane.showMessageDialog(null, "Foto publicada");
     }
 
-    /**
-     * @param Comnt
-     * @throws FacebookException
-     * Clase que publica un estado que recibe como string
-     */
     public static void publicarEstado(String Comnt) throws FacebookException {
         facebook.postStatusMessage(Comnt);
         JOptionPane.showMessageDialog(null, "Estado publicado");
     }
 
-    /**
-     * @param Kword
-     * @throws FacebookException
-     * Busca un tema por la palabra que recibe como string
-     */
+
     public static void buscarTL(String Kword) throws FacebookException {
 
         ResponseList<facebook4j.Group> results = facebook.searchGroups(Kword);
@@ -84,12 +67,6 @@ public class AplicacionFacebook {
         
     }
 
-    /**
-     *
-     * @throws FacebookException
-     * Comenta en un post el cual es idicado por un id y recibe el texto
-     * mediante un JOptionPane
-     */
     public static void comentarPost() throws FacebookException {
         String ID = JOptionPane.showInputDialog("Introducir id a comentar");
         String comentario = JOptionPane.showInputDialog("comentario:");
@@ -97,11 +74,7 @@ public class AplicacionFacebook {
 
     }
 
-    /**
-     *
-     * @throws FacebookException
-     * Recibe y muestra los comentarios
-     */
+
     public static void ObtenerComentar() throws FacebookException {
 
         ResponseList<Post> feed = facebook.getHome();
@@ -110,16 +83,12 @@ public class AplicacionFacebook {
         }
     }
 
-    /**
-     * @param args the command line arguments 
-     * Utilizo el main para hacer visible
-     * el menu y conectar la aplicacion con facebook
-     */
+
     public static void main(String[] args) throws FacebookException {
         Menu apf = new Menu();
         apf.setVisible(true);
         connectr();
-        // TODO code application logic here
+
     }
 
 }
